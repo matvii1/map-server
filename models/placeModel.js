@@ -7,7 +7,6 @@ export const Place = sequelize.define(
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
-      autoIncrement: true, // Assuming it's an auto-incrementing primary key
     },
     name: {
       type: DataTypes.STRING,
@@ -32,11 +31,3 @@ export const Place = sequelize.define(
     createdAt: false,
   }
 )
-
-// await Place.create({
-//   id: 3,
-//   name: 'Name',
-//   description: '123123',
-//   longitude: 123,
-//   latitude: 321,
-// })

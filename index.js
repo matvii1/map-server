@@ -3,7 +3,7 @@ import express from 'express'
 import { placesRouter } from './routes/placesRoute.js'
 
 const app = express()
-const PORT = 4444
+const PORT = 4441
 
 app.use(cors())
 app.use(express.json())

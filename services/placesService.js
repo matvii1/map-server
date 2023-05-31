@@ -24,4 +24,23 @@ export const placesService = {
       res.send(new CustomError('Something went wrong'))
     }
   },
+  deleteOne: async (req, res) => {
+    try {
+      const { id } = req.params
+
+      console.log(id);
+      
+      await Place.destroy({
+        where: {
+          id,
+        },
+      })
+
+      res.status(200)
+      res.send()
+    } catch (error) {
+      console.log(error)
+      res.send(new CustomError('Something went wrong'))
+    }
+  },
 }

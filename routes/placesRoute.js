@@ -5,3 +5,4 @@ export const placesRouter = express.Router()
 
 placesRouter.get('/', placesService.getAll)
 placesRouter.post('/', placesService.postOne)
+placesRouter.delete('/:id', placesService.deleteOne)
