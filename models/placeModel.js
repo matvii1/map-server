@@ -1,6 +1,31 @@
 import { DataTypes } from 'sequelize'
 import { sequelize } from '../db.js'
 
+const queryInterface = sequelize.getQueryInterface()
+
+queryInterface.createTable('Place', {
+  id: {
+    type: DataTypes.INTEGER,
+    primaryKey: true,
+  },
+  name: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  description: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  latitude: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+  },
+  longitude: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+  },
+})
+
 export const Place = sequelize.define(
   'Place',
   {
@@ -17,11 +42,11 @@ export const Place = sequelize.define(
       allowNull: false,
     },
     latitude: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
     longitude: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
   },
@@ -31,3 +56,5 @@ export const Place = sequelize.define(
     createdAt: false,
   }
 )
+
+await Place.sync({ force: true })
